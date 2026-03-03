@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Suscripción Próspera IA</title>
-    
+
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    
     <script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
           appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          // ESTO ES LO QUE ONE SIGNAL NO TE DICE PERO TÚ NECESITAS:
+          // ESTO ES LO QUE CONECTA CON TU SUB-CARPETA DE GITHUB
           serviceWorkerPath: "OneSignalSDKWorker.js",
           serviceWorkerParam: { scope: "/prospera-web/" },
-          allowLocalhostAsSecureOrigin: true,
           notifyButton: {
-            enable: true, /* Para que salga la campana */
+            enable: true,
+            position: 'bottom-right',
             colors: { 'circle.background': 'red' }
-          },
+          }
         });
+        
+        // Solicitar permiso automáticamente al cargar
+        OneSignal.Notifications.requestPermission();
       });
     </script>
 </head>
 <body style="font-family: sans-serif; text-align: center; padding: 50px;">
     <h1>🚀 Próspera IA</h1>
-    <p>Si la configuración es correcta, la campana roja aparecerá abajo.</p>
+    <p>Si has guardado los cambios en GitHub, refresca la página con <b>Ctrl + F5</b>.</p>
 </body>
 </html>
