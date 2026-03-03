@@ -7,35 +7,38 @@
     
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.rit.js" async=""></script>
     
-   await OneSignal.init({
-  appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-  // Forzamos la ruta completa aunque el panel la recorte
-  serviceWorkerPath: "OneSignalSDKWorker.js",
-  serviceWorkerParam: { scope: "/prospera-web/" },
-  notifyButton: {
-    enable: true,
-  }
-});,
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+          safari_web_id: "web.onesignal.auto.10425338-761c-4384-8176-787201b3b248",
+          // SOLUCIÓN AL ERROR 404: Ruta forzada a la subcarpeta
+          serviceWorkerPath: "prospera-web/OneSignalSDKWorker.js",
+          serviceWorkerParam: { scope: "/prospera-web/" },
+          allowLocalhostAsSecureOrigin: true,
           notifyButton: {
-            enable: true, /* Esto fuerza la campana roja */
+            enable: true, /* Esto activa la campana roja */
             position: 'bottom-right',
             size: 'medium',
+            text: {
+                'tip.state.unsubscribed': 'Suscríbete a las alertas',
+                'tip.state.subscribed': 'Estás suscrito',
+                'tip.state.blocked': 'Has bloqueado las notificaciones'
+            },
             colors: {
                 'circle.background': 'red'
             }
           },
         });
 
-        // Esto solicita el permiso automáticamente si los ajustes del navegador lo permiten
+        // Intentar lanzar la petición de permiso al cargar
         OneSignal.Notifications.requestPermission();
       });
     </script>
 </head>
 <body style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9;">
     <div style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h1>🚀 Próspera IA</h1>
-        <p>Si ya diste permisos en el candado del navegador, la campana debería aparecer ahora.</p>
-        <p>Una vez te suscribas, el error en <b>Make</b> desaparecerá automáticamente.</p>
-    </div>
-</body>
-</html>
+        <h1 style="color: #333;">🚀 Próspera IA</h1>
+        <p>Configuración de Notificaciones en GitHub Pages</p>
+        <hr style="border: 0; border-
