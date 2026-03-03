@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suscripción Próspera IA</title>
-    
+    <title>Suscripción Próspera</title>
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.rit.js" async=""></script>
+    <script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
           appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          safari_web_id: "web.onesignal.auto.10425338-761c-4384-8176-787201b3b248",
-          notifyButton: {
-            enable: true, /* Esto hará que aparezca la campana roja abajo a la derecha */
-          },
         });
+        // ESTO FUERZA EL MENSAJE DE SUSCRIPCIÓN AL CARGAR
+        OneSignal.Notifications.requestPermission();
       });
     </script>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9;">
-    <h1>🚀 Próspera IA: Activación de Notificaciones</h1>
-    <p>Haz clic en la <b>campana roja</b> que aparece abajo a la derecha para suscribirte.</p>
-    <p>Una vez que lo hagas, <b>Make</b> podrá enviarte las alertas correctamente.</p>
+<body>
+    <h1>Cargando suscripción...</h1>
 </body>
 </html>
