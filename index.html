@@ -7,16 +7,15 @@
     
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.rit.js" async=""></script>
     
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          safari_web_id: "web.onesignal.auto.10425338-761c-4384-8176-787201b3b248",
-          // CONFIGURACIÓN OBLIGATORIA PARA SUB-CARPETA GITHUB
-          serviceWorkerPath: "OneSignalSDKWorker.js",
-          serviceWorkerParam: { scope: "/prospera-web/" },
-          allowLocalhostAsSecureOrigin: true,
+   await OneSignal.init({
+  appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+  // Forzamos la ruta completa aunque el panel la recorte
+  serviceWorkerPath: "OneSignalSDKWorker.js",
+  serviceWorkerParam: { scope: "/prospera-web/" },
+  notifyButton: {
+    enable: true,
+  }
+});,
           notifyButton: {
             enable: true, /* Esto fuerza la campana roja */
             position: 'bottom-right',
