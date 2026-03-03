@@ -11,23 +11,23 @@
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
           appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          // ESTO ES LO QUE CONECTA CON TU SUB-CARPETA DE GITHUB
+          // ESTO CORRIGE EL ERROR 404 EN SUB-CARPETAS
           serviceWorkerPath: "OneSignalSDKWorker.js",
           serviceWorkerParam: { scope: "/prospera-web/" },
+          allowLocalhostAsSecureOrigin: true,
           notifyButton: {
             enable: true,
             position: 'bottom-right',
             colors: { 'circle.background': 'red' }
           }
         });
-        
-        // Solicitar permiso automáticamente al cargar
-        OneSignal.Notifications.requestPermission();
       });
     </script>
 </head>
 <body style="font-family: sans-serif; text-align: center; padding: 50px;">
     <h1>🚀 Próspera IA</h1>
-    <p>Si has guardado los cambios en GitHub, refresca la página con <b>Ctrl + F5</b>.</p>
+    <p>Si la campana no aparece, es por el bloqueo que vemos en tu consola.</p>
+    <p><b>Paso 1:</b> Desactiva cualquier bloqueador de anuncios (AdBlock).</p>
+    <p><b>Paso 2:</b> Usa una ventana de Incógnito.</p>
 </body>
 </html>
