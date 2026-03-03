@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Suscripción Próspera IA</title>
-
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          // ESTO CORRIGE EL ERROR 404 EN SUB-CARPETAS
-          serviceWorkerPath: "OneSignalSDKWorker.js",
-          serviceWorkerParam: { scope: "/prospera-web/" },
-          allowLocalhostAsSecureOrigin: true,
-          notifyButton: {
-            enable: true,
-            position: 'bottom-right',
-            colors: { 'circle.background': 'red' }
-          }
-        });
-      });
-    </script>
-</head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px;">
-    <h1>🚀 Próspera IA</h1>
-    <p>Si la campana no aparece, es por el bloqueo que vemos en tu consola.</p>
-    <p><b>Paso 1:</b> Desactiva cualquier bloqueador de anuncios (AdBlock).</p>
-    <p><b>Paso 2:</b> Usa una ventana de Incógnito.</p>
-</body>
-</html>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+      // Estos campos deben ser idénticos a tu captura de "Advanced Settings"
+      serviceWorkerPath: "OneSignalSDKWorker.js", 
+      serviceWorkerParam: { scope: "/prospera-web/" },
+      notifyButton: {
+        enable: true,
+        colors: { 'circle.background': 'red' }
+      }
+    });
+  });
+</script>
