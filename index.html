@@ -4,11 +4,9 @@
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-      // ESTA LÍNEA ES LA CLAVE:
-      serviceWorkerParam: { scope: "/prospera-web/" },
-      serviceWorkerPath: "prospera-web/OneSignalSDKWorker.js",
+      // Esto le dice al navegador dónde buscar el archivo JS
+      serviceWorkerPath: "OneSignalSDKWorker.js", 
+      serviceWorkerParam: { scope: "/prospera-web/" }
     });
-    // Forzamos la petición
-    OneSignal.Notifications.requestPermission();
   });
 </script>
