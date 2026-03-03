@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Suscripción Próspera</title>
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.rit.js" async=""></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-        });
-        // ESTO FUERZA EL MENSAJE DE SUSCRIPCIÓN AL CARGAR
-        OneSignal.Notifications.requestPermission();
-      });
-    </script>
-</head>
-<body>
-    <h1>Cargando suscripción...</h1>
-</body>
-</html>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.rit.js" async=""></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+      // ESTA LÍNEA ES LA CLAVE:
+      serviceWorkerParam: { scope: "/prospera-web/" },
+      serviceWorkerPath: "prospera-web/OneSignalSDKWorker.js",
+    });
+    // Forzamos la petición
+    OneSignal.Notifications.requestPermission();
+  });
+</script>
