@@ -1,13 +1,41 @@
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-      // Forzamos el nombre y el scope exactos que tienes en tu panel
-      serviceWorkerPath: "OneSignalSDKWorker.js",
-      serviceWorkerParam: { scope: "/prospera-web/" },
-      notifyButton: { enable: true }
-    });
-  });
-</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripción Próspera IA</title>
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+          // Estos campos deben coincidir con tu captura de 'Advanced Settings'
+          serviceWorkerPath: "OneSignalSDKWorker.js",
+          serviceWorkerParam: { scope: "/prospera-web/" },
+          allowLocalhostAsSecureOrigin: true,
+          notifyButton: {
+            enable: true,
+            position: 'bottom-right',
+            colors: {
+                'circle.background': 'red'
+            }
+          }
+        });
+      });
+    </script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9;">
+    <div style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h1>🚀 Próspera IA</h1>
+        <p>Si ves "Permission blocked", sigue estos 3 pasos rápidos:</p>
+        <ol style="text-align: left; display: inline-block;">
+            <li>Haz clic en el <b>candado</b> junto a la URL y dale a "Restablecer permiso".</li>
+            <li>Cierra la pestaña y abre una nueva en <b>Modo Incógnito</b>.</li>
+            <li>Pulsa la campana roja y acepta de nuevo.</li>
+        </ol>
+    </div>
+</body>
+</html>
