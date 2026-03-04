@@ -1,16 +1,11 @@
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
+OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
-      appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-      serviceWorkerPath: "OneSignalSDKWorker.js",
-      serviceWorkerParam: { scope: "/prospera-web/" }, // Crucial para GitHub Pages
-      allowLocalhostAsSecureOrigin: true,
-      notifyButton: {
-        enable: true,
-        colors: { 'circle.background': 'red' }
-      }
+        appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+        serviceWorkerPath: "OneSignalSDKWorker.js",
+        serviceWorkerParam: { scope: "/prospera-web/" },
+        allowLocalhostAsSecureOrigin: true,
     });
-  });
-</script>
+    // Forzamos el registro manual para romper el 'undefined'
+    await OneSignal.Notifications.requestPermission();
+    console.log("ID de Suscripción:", OneSignal.User.PushSubscription.id);
+});
