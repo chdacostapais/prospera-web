@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Suscripción Próspera IA</title>
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
-          serviceWorkerPath: "OneSignalSDKWorker.js",
-          serviceWorkerParam: { scope: "/prospera-web/" },
-          allowLocalhostAsSecureOrigin: true,
-          notifyButton: {
-            enable: true,
-            colors: { 'circle.background': 'red' }
-          }
-        });
-      });
-    </script>
-</head>
-<body style="text-align: center; font-family: sans-serif; padding-top: 50px;">
-    <h1>🚀 Configuración Próspera IA</h1>
-    <p>Si ves la campana roja, suscríbete y luego ve a Make.</p>
-</body>
-</html>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "218759be-3cc1-4a68-9374-8265ebf61cc1",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/prospera-web/" }, // Crucial para GitHub Pages
+      allowLocalhostAsSecureOrigin: true,
+      notifyButton: {
+        enable: true,
+        colors: { 'circle.background': 'red' }
+      }
+    });
+  });
+</script>
